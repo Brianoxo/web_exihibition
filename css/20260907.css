@@ -1,0 +1,265 @@
+            body {
+                background-color: var(--bg001);
+                
+            }
+            
+            
+            .wrapper {
+                width: 1024px;
+                
+                margin-top: 50px;
+                margin-bottom: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                /*height: 120px;*/
+                background-color: rgba(255, 248, 183, 0.911);
+                box-shadow: 5px 5px 20px 2px rgba(0, 47, 255, 0.932); 
+            }
+
+            .logo {
+                width: 1024px;
+                height: 360px;
+                background-color: var(--logo01);
+                background-image: url(../images/premium_photo-1723526592766-15d1fd0de4a5.avif);/*"../"代表往上跳一層*/
+                background-position: center center;
+                background-size: cover; /*cover會讓圖片自動縮放，並保持比例，直到完全覆蓋背景區域，可能會裁切圖片的部分內容。contain會讓圖片自動縮放，並保持比例，直到整張圖片都能完整顯示在背景區域內，可能會留白。*/
+
+            }
+
+            nav {
+                background-color: var(--nav01);
+                /*width: 1024px;*/
+                /*height: 120px;*/                
+                text-align: center;
+                /*text-align 的有效對象不只是純文字，它對行內內容（Inline Content）都有效。
+                只要元素的 display 是區塊性質（例如 block、inline-block、flex 的子層等），且裡面放的是行內或行內區塊性質的東西，text-align 就會發揮作用。
+                具體來說，text-align 可以對齊以下這些東西：
+                純文字： 例如 <div>Hello</div>，裡面的字會被對齊。
+                行內元素（Inline）： 例如 <span>、<a>、<img>。如果你在一張圖片（<img> 預設是行內元素）的外層 div 設定 text-align: center，圖片就會跟著置中。
+                行內區塊元素（Inline-block）： 這就是為什麼前面你的 nav ul 只要改成 inline-block，就能被父層 nav 的 text-align: center 成功置中，因為此時 ul 在父層眼裡就被當成了一個「大字塊」。
+                相對地，如果元素裡面放的是純區塊元素（Block）（例如裡面裝了好幾個預設的 div 或 p），text-align 就完全無效，因為區塊元素預設會搶佔一整行，不受文字對齊屬性的管轄。在 CSS 的世界裡，這叫做「優先權與覆寫（Override）」：預設情況下，子元素會乖乖聽父層的話（繼承字體大小）。但只要子元素自己身上也宣告了 font-size（不管是幾像素、em 還是 rem），它就會立刻蓋掉父層的設定，展現它自己的大小，text-align同理，當子元素是一個區塊元素（block，例如 div 或 p）時：子元素繼承了父層的 text-align: center，這只代表「這個子元素裡面的文字」會置中。但是，這個子元素盒子本身並不會因為這樣就跑到畫面的正中間，它依然會佔滿一整行。如果要讓一個區塊子元素「整個盒子」置中，不能靠 text-align，而是要靠 margin: 0 auto；相對地，text-align 只負責管內部行內內容（Inline content）的排版。。*/
+                margin-top: 10px;
+                padding-top: 10px;
+                padding-bottom: 1px;
+                border: 10px solid rgba(14, 165, 0, 0.932);
+                box-sizing: border-box; /*確保該箱子大小維持在指訂的大小，使border的寬度是從邊界往內縮*/
+
+            }
+
+            nav ul {
+                /*background-color: antiquewhite;*/
+                display: inline-block;/*變成兼具行內元素與區塊元素特性的行內區塊，可以並排，又可以設定寬高，如此才可以受到父層nav text-alignL center的影響，當你把一個元素設定為 display: inline-block 時，瀏覽器會為它建立一個全新的 BFC。這個 BFC 擁有幾項特殊的超能力，其中一項就是：「它必須包含內部的浮動元素（Contain internal floats）」。具體運作的差異在於：一般的區塊元素（display: block）：它們的視角非常狹隘。當裡面的子元素加上了 float 飄起來後，普通區塊會認為這些子元素已經「脫離隊伍、不在我的管轄範圍內了」，所以在計算自身高度時，會直接把這些浮動元素當作 0，導致容器高度塌陷（Height Collapse）。  建立 BFC 的元素（如 display: inline-block）：當 ul 變成 inline-block 後，它建立了一個獨立的格式化區域。瀏覽器在計算這個 ul 的高度時，會強制把「裡面所有飄浮的 li 的高度」全部納入計算範圍內。因為它「看得到」浮動元素，所以會自動向下延伸，把這些 li 緊緊包覆在自己的背景範圍裡。  所以，inline-block 之所以能「包覆」浮動元素，是因為 CSS 規範賦予了它「必須負責計算並包含內部浮動子元素」的特性。
+                當你將 display: inline-block 移除後，nav ul 會恢復成預設的區塊元素（block），而此時裡面的所有 li 都加上了 float: left：為什麼背景不見了（高度塌陷）： 裡面的 li 因為「飄浮」起來了，脫離了原本的文件流。身為父層的 ul（如果它是普通的 block）會完全看不到這些飄起來的子元素，導致 ul 的高度瞬間變成 0。一個高度為 0 的容器，就算設定了背景顏色，肉眼也是看不見的。為什麼加上 inline-block 看得到： 當 ul 被設定為 display: inline-block 時，它會強迫自己去「包覆」這些浮動的子元素（在 CSS 術語中稱為建立 BFC），讓 ul 擁有實際的高度與寬度，因此 antiquewhite 的背景顏色就能完整顯現出來。
+                純 inline（例如 <span>）： 它是無法設定寬高（width/height）的，而且它完全包覆不了浮動元素。純 block（例如預設的 <ul>）： 它是區塊，但因為預設沒有建立 BFC，所以會忽略內部的浮動元素，導致高度塌陷。inline-block：前半部的 inline 讓它表現得像文字一樣，可以並排、可以靠父層的 text-align: center 置中。後半部的 block 讓它擁有區塊的身分，可以設定寬高，並且在內部排版上具備了建立 BFC 的條件，所以它能夠把浮動的子元素計算進去、乖乖包覆起來。*/
+            }
+
+            nav ul li {
+                /*background-color: blueviolet;*/
+                float: left; /*這個元素會像是「飄浮」起來一樣，脫離原本一格一格往下掉的垂直隊伍。它不再跟其他元素排隊，而是貼齊父元素的左側。原本會佔滿一整行的元素，加上 float 後，它的寬度會自動縮小到「剛剛好包住裡面的文字或內容」（這在 CSS 裡稱為 Shrink-to-fit），因為它飄起來了、又變瘦了，它原本佔據的空間就會空出來。
+                float: left（向左浮動）時，它會遵循以下規則移動並停下來：貼齊父容器邊緣： 它會一直往左飄，直到碰到父層容器的左邊界（或左側的內距 padding）為止，不會直接飛出父元素外面。碰到前一個浮動元素： 如果同層已經有一個 float: left 的元素，第二個元素會緊緊貼在第一個元素的右邊。如果這一行空間不夠放了，它才會掉到下一行，並繼續往左邊界貼齊。影響周圍文字： 雖然它自己「飄起來」了，但父層裡如果還有一般的文字或行內元素，這些文字會自動「繞過」這個浮動元素，而不會被它蓋住。所以它依然被關在父元素的範圍之內，只是改變了相對於其他兄弟元素的排列方式。*/
+                list-style-type: none;
+            }
+
+            nav ul li a {
+                display: block;
+                background-color: var(--bg001);
+                padding-top: 10px ;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+                text-decoration: none;
+                color: var(--word01);
+                font-size: 20px;  
+                font-weight: bolder;
+                border-radius: 5px;
+                margin-left: 5px;
+                margin-right: 5px;   
+                box-shadow: 2px 2px 5px 2px var(--btn001);     
+            }
+
+            nav ul li a:hover {
+                background-color: var(--hoverbg01);
+                color:var(--hoverword01);
+                box-shadow: 5px 2px 15px 5px rgba(217, 255, 0, 0.911);
+            }
+
+            .content{
+                background-color: var(--bg002);
+                background-image: url(../images/photo-1560851691-ebb64b584d3d.avif);
+                background-position: center center;
+                background-size: cover;
+                margin-top: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 5px;
+                padding-right: 5px;
+                height: 500px;
+                color: var(--word01);
+            }
+
+            .content h1{
+                background-color: rgba(14, 165, 0, 0.932);
+                color: chartreuse;
+                font-size: 40px;
+                text-align: center;
+            }
+
+            /*=====================方法一========================*/
+            /* .picturegroup {
+                display: block; /* 保持區塊特性 
+            }*//*兩圖並排，下方文字排列方法一*/ 
+
+            /*.picturegroup::after{
+                display: block;
+                content: "";
+                clear: both;
+            }/*兩圖並排，下方文字排列方法一*/
+            /*=============================================*/
+
+            /*========================方法二=====================*/
+            /*.picturegroup {
+                display: block;
+                overflow: hidden; 
+            }*//*兩圖並排，下方文字排列方法二:原理：當父層設定了 overflow 為非 visible 的值時，瀏覽器會認為這是一個獨立的渲染區域（BFC），它為了不讓內容溢出，會乖乖把裏面 float 的兒子們的高度全部計算進來，自動撐開高度。*/
+            /*=============================================*/
+            
+            
+            /*========================方法三=====================*/
+            .picturegroup {
+                display: flow-root; /* 專門用來建立 BFC 且沒有 overflow 副作用的屬性 *//*兩圖並排，下方文字排列方法三:這是後來 CSS 規範特別新增的值。它的唯一目的就是建立 BFC、完美清除內部浮動、撐開高度，而且不像 overflow: hidden 那樣可能會不小心切掉超出邊框的東西（例如陰影或絕對定位的下拉選單）。*/
+            }
+            /*================================================*/
+
+            .box01{
+                width: 50%;
+                height: 200px;
+                background-image: url(../images/photo-1534056819131-b3791120051c.avif);
+                
+                background-position: center center;
+                background-size: cover;
+                float: left;
+            }
+
+            .box02{
+                width: 50%;
+                height: 200px;
+                background-image: url(../images/photo-1704265586326-6b8d7569e62c.avif);
+                
+                background-position: center center;
+                background-size: cover;
+                float: left;
+            }
+
+            .content p{
+                clear: both; /*清除浮動，讓段落文字不會被上方的浮動元素（box01、box02）覆蓋*/
+                font-size: 20px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            .content a{
+                background-color: rgba(35, 209, 1, 0.932);
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                color: rgba(7, 75, 0, 0.932);
+                width: 200px;
+                height: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 10px;
+                padding-bottom: 15px;
+                font-size: 20px;
+            }
+
+            .content a:hover{
+                background-color: blueviolet;
+                color:chartreuse;
+                box-shadow: 20px;
+                border-radius: 5px;
+            }
+            
+            .footer{
+                background-color: rgb(0, 204, 255);
+                color: blue;
+                text-align: center;
+                font-size: 20px;
+                font-style: italic;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            /*RWD，只有在視窗寬度<=1024時才有效，為何screen and 不是寫在與max-width的()內? 這是 CSS 語法規範（Syntax Specification）所規定的結構設計，將媒體類型（Media Type）與媒體特性（Media Feature）區分開來。
+
+            screen 是媒體類型：用來指定裝置的種類（如 screen 螢幕、print 列印、speech 語音），它不需要加上括號。
+
+            (max-width: 1024px) 是媒體特性與數值：CSS 規定所有特性（如寬度、高度、解析度等）都必須用小括號 () 包起來，讓瀏覽器知道這是一個條件判斷式。
+
+            and 作為連接詞：用來把不同的條件串接在一起。
+
+            如果把它們全部塞進同一個括號裡（例如 (screen and max-width: 1024px)），會不符合 CSS 解析器的語法規則，導致瀏覽器無法正確讀取這行條件判斷。*/
+            @media screen and (max-width:1024px) {
+                .wrapper{
+                    width: 95%;
+                }
+
+                .logo{
+                    width: 100%;
+                    background-color: rgba(53, 207, 187, 0.932);
+                    height: 160px;
+                    background-image: url(../images/photo-1534056819131-b3791120051c.avif);
+                    
+                }
+            }
+
+            @media screen and (max-width:768px) {
+                .logo{
+                    width: 100%;
+                    background-color: rgba(208, 255, 0, 0.932);
+                    height: 300px;
+                    background-image: url(../images/istockphoto-2243200430-1024x1024.jpg);                    
+                }
+                nav ul li {
+                    float:none;
+                    margin-bottom: 5px;
+                    
+                }
+                nav ul li a {
+                    display: block;
+                    margin-right: 0;
+                }
+                
+                .content {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+
+                .content h1{
+                    font-size:  30px;
+                    font-style: italic;
+                    
+                }
+
+                .content p {
+                    font-size: 18px;
+                    font-style: oblique;
+                }
+
+                .content a {
+                    font-size: 18px;
+                }
+
+                .footer {
+                    font-size: 16px;
+                }
+
+                .box01, .box02 {
+                    width: 100%;
+                    height: 200px;
+                    margin-bottom: 15px;
+                }
+            }

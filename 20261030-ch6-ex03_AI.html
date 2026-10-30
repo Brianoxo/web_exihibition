@@ -1,0 +1,155 @@
+<!--依據這份程式的語法架構D:\職前課程\js_上課內容\網頁前端課程\20261005\20261030-ch6-ex03_AI.htmll，幫我填入適合的內容，改造成一個寵物蛋糕店的購物網站
+1.請勿大量修改版面之格局
+2.加入CSS的指令，讓整體畫面已粉紅色為主題延伸變化
+3.照片路徑使用D:\職前課程\js_上課內容\網頁前端課程\20261005\images內的以下圖片:
+pet01, pet02,pet03,pet04,pet05,pet06
+4.勿加入使用其他框架，單純使用bootstrap與自訂css語法產生-->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毛毛甜室｜寵物生日蛋糕專門店</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        :root { --pink: #b33164; --rose: #f9dce7; --ink: #573b46; }
+        body { margin: 0; color: var(--ink); background: #fff7fa; font-family: "Microsoft JhengHei", sans-serif; }
+        .container { padding-bottom: 24px; }
+        .box01 { height: 100%; border-radius: 18px; overflow: hidden; }
+        .brand { min-height: 160px; padding: 25px 32px; background: linear-gradient(115deg, #f6bfd3, #ffe9f0); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .eyebrow { color: #873452; font-size: 12px; font-weight: 700; letter-spacing: 3px; }
+        h1 { margin: 5px 0; color: #8d2851; font-weight: 900; font-size: clamp(28px, 4vw, 42px); }
+        .brand p { margin: 0; font-size: 14px; }
+        .brand-mark { font-size: 48px; }
+        .category { display: block; padding: 19px 10px; text-align: center; background: #fff; border: 1px solid #f1cad9; text-decoration: none; color: #8d2851; font-weight: 700; transition: .2s; }
+        .category:hover, .category:focus-visible { background: var(--rose); color: #792041; transform: translateY(-3px); }
+        .category span { display: block; margin-bottom: 6px; font-size: 25px; }
+        .feature { padding: 20px 15px; background: #fce7ee; text-align: center; border: 1px solid #f5d3df; }
+        .feature strong { display: block; font-size: 16px; color: #973255; margin-bottom: 7px; }
+        .feature p { margin: 0; font-size: 13px; line-height: 1.8; }
+        .product { background: #fff; border: 1px solid #f1d6e1; box-shadow: 0 5px 16px #9a42600b; display: flex; flex-direction: column; }
+        .product img { width: 100%; height: 210px; object-fit: cover; }
+        .product .portrait { object-position: center 60%; }
+        .product-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+        .tag { color: #a43c65; font-size: 12px; letter-spacing: 1px; }
+        .product h2 { font-size: 19px; font-weight: 700; margin: 8px 0; }
+        .product p { font-size: 13px; color: #7b6470; line-height: 1.7; flex: 1; }
+        .price { font-size: 20px; color: var(--pink); font-weight: 800; margin-bottom: 12px; }
+        .btn-pink { background: var(--pink); color: #fff; border: 1px solid var(--pink); border-radius: 10px; padding: 9px 14px; }
+        .btn-pink:hover, .btn-pink:focus-visible { color: #fff; background: #8b214a; border-color: #8b214a; }
+        .footer { padding: 24px; background: #f6d3e0; text-align: center; line-height: 1.9; font-size: 13px; }
+        .footer strong { font-size: 19px; color: #8d2851; }
+        .cart-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        #cart-items { padding-left: 24px; }
+        #cart-status { color: #8d2851; min-height: 24px; }
+        a:focus-visible, button:focus-visible { outline: 3px solid #863451; outline-offset: 3px; }
+        @media (max-width: 575px) { .brand { padding: 24px 20px; } .brand-mark { display: none; } .product img { height: 250px; } }
+        @media (prefers-reduced-motion: reduce) { .category { transition: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 保留原始五列與欄位的響應式配置 -->
+        <div class="row">
+            <div class="col-12 mt-3 d-md-none d-lg-block">
+                <header class="box01 brand">
+                    <div><div class="eyebrow">PAW PAW PATISSERIE</div><h1>毛毛甜室</h1><p>寵物生日蛋糕專門店 · 把每一歲，都過得甜一點。</p></div>
+                    <div class="brand-mark" aria-hidden="true">♡ 🐾</div>
+                </header>
+            </div>
+        </div>
+        <nav class="row" aria-label="商店導覽">
+            <div class="col-sm-6 col-lg-4 col-xxl-2 mt-3"><a class="box01 category" href="#cake-1"><span aria-hidden="true">🎂</span>生日蛋糕</a></div>
+            <div class="col-sm-6 col-lg-4 col-xxl-2 mt-3"><a class="box01 category" href="#cake-2"><span aria-hidden="true">🐱</span>貓咪專區</a></div>
+            <div class="col-sm-6 col-lg-4 col-xxl-2 mt-3"><a class="box01 category" href="#cake-3"><span aria-hidden="true">🐶</span>汪汪專區</a></div>
+            <div class="col-sm-6 col-lg-4 col-xxl-2 mt-3"><a class="box01 category" href="#cake-4"><span aria-hidden="true">🧁</span>迷你小蛋糕</a></div>
+            <div class="col-sm-6 col-lg-4 col-xxl-2 mt-3"><a class="box01 category" href="#shopping-info"><span aria-hidden="true">📦</span>訂購須知</a></div>
+            <div class="col-sm-6 col-lg-4 col-xxl-2 mt-3"><button class="box01 category w-100" type="button" data-bs-toggle="modal" data-bs-target="#cartModal"><span aria-hidden="true">🛒</span>購物車（<span id="cart-count" style="display:inline;font-size:inherit">0</span>）</button></div>
+        </nav>
+        <section class="row" id="shopping-info" aria-label="訂購須知">
+            <div class="col-sm-6 col-lg-3 col-xxl-2 mt-3"><div class="box01 feature"><strong>♡ 專屬慶生時光</strong><p>一口小小心意<br>紀念每年的陪伴</p></div></div>
+            <div class="col-sm-6 col-lg-3 col-xxl-2 mt-3"><div class="box01 feature"><strong>📅 提前預訂</strong><p>建議提前 7 天訂購<br>為毛孩預留製作時間</p></div></div>
+            <div class="col-sm-6 col-lg-3 col-xxl-2 mt-3"><div class="box01 feature"><strong>❄ 冷凍配送</strong><p>運費每筆 NT$ 160<br>食用前請冷藏解凍</p></div></div>
+            <div class="col-sm-6 col-lg-3 col-xxl-2 mt-3"><div class="box01 feature"><strong>🐾 食材先確認</strong><p>依毛孩需求選擇口味<br>訂購前確認過敏食材</p></div></div>
+            <div class="col-sm-6 col-lg-3 col-xxl-2 mt-3 d-none d-xxl-block"><div class="box01 feature"><strong>🎀 心意小禮</strong><p>生日與紀念日<br>都值得一份儀式感</p></div></div>
+            <div class="col-sm-6 col-lg-3 col-xxl-2 mt-3 d-none d-xxl-block"><div class="box01 feature"><strong>♡ 溫柔分享</strong><p>蛋糕作為偶爾的點心<br>請按體型適量餵食</p></div></div>
+        </section>
+        <main class="row" id="products" aria-label="精選蛋糕商品"></main>
+        <div class="row">
+            <div class="col-12 mt-3 d-none d-md-block"><footer class="box01 footer"><strong>毛毛甜室 · Paw Paw Patisserie</strong><br>陪伴的每一天，都值得好好慶祝。<br>商品照片為情境示意，實際造型與食材以訂購確認為準。<br>© 毛毛甜室｜課程購物網站展示</footer></div>
+        </div>
+        <p id="cart-status" class="mt-3 mb-0 text-center" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cart-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+            <div class="modal-header"><h2 class="modal-title fs-5" id="cart-title">你的甜蜜購物車</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button></div>
+            <div class="modal-body"><p id="cart-empty">購物車還是空的，挑一份毛孩的生日驚喜吧！</p><ul id="cart-items"></ul><p id="cart-total" class="fw-bold"></p><p class="small text-muted mb-0">此為課程展示網站，購物車僅供試算，未提供付款或送出訂單功能。重新整理頁面會清空購物車。</p></div>
+            <div class="modal-footer"><button class="btn btn-outline-secondary" id="clear-cart" type="button">清空購物車</button><button class="btn btn-pink" data-bs-dismiss="modal" type="button">繼續選購</button></div>
+        </div></div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 沿用原始商品列的八個欄位，只使用原生 JavaScript 與 Bootstrap。
+        const products = [
+            { name: '喵喵生日派對', tag: 'BIRTHDAY · 4 吋', note: '為小壽星準備的生日心意，留下可愛的慶生回憶。', image: 'pet01.jpg', price: 680 },
+            { name: '喵星人彩蔬蛋糕', tag: 'CAT FAVORITE · 3 吋', note: '繽紛層次的鮮食靈感，小小一份也有滿滿儀式感。', image: 'pet03.jpg', price: 520 },
+            { name: '森林探險蛋糕', tag: 'PARTY TIME · 4 吋', note: '森林主題的派對造型，陪汪星人一起迎接新的一歲。', image: 'pet02.jpg', price: 780 },
+            { name: '小動物杯子蛋糕', tag: 'MINI CAKE · 3 入', note: '可愛動物造型小蛋糕，讓慶生桌多一點童趣。', image: 'pet04.jpg', price: 420 },
+            { name: '花漾貓咪造型蛋糕', tag: 'FLOWER CAT · 4 吋', note: '粉彩花朵與貓咪造型，獻給家裡最受寵的小主角。', image: 'pet05.jpg', price: 880 },
+            { name: '暖心陪伴慶生蛋糕', tag: 'SWEET MOMENT · 6 吋', note: '把相伴的日常化成驚喜，為重要的日子留一張合照。', image: 'pet06.jpg', price: 980 },
+            { name: '花園生日小蛋糕', tag: 'LITTLE GARDEN · 6 入', note: '迷你造型組合，讓每個慶生角落都有甜蜜風景。', image: 'pet04.jpg', price: 780 },
+            { name: '夢幻花冠貓咪蛋糕', tag: 'SPECIAL DAY · 6 吋', note: '花冠主題的慶生提案，讓毛孩成為派對的焦點。', image: 'pet05.jpg', price: 1280 }
+        ];
+        const cart = new Map();
+        const money = value => 'NT$ ' + value.toLocaleString('zh-TW');
+        document.getElementById('products').innerHTML = products.map((p, index) => `
+            <div class="col-md-6 col-xl-3 mt-3" id="cake-${index + 1}">
+                <article class="box01 product">
+                    <img class="${['pet01.jpg', 'pet06.jpg'].includes(p.image) ? 'portrait' : ''}" src="images/${p.image}" alt="${p.name}情境示意照片" loading="lazy" width="640" height="480">
+                    <div class="product-body"><span class="tag">${p.tag}</span><h2>${p.name}</h2><p>${p.note}</p><div class="price">${money(p.price)}</div><button type="button" class="btn btn-pink w-100" data-product="${index}" aria-label="加入購物車：${p.name}">加入購物車 ＋</button></div>
+                </article>
+            </div>`).join('');
+        function renderCart() {
+            let count = 0, subtotal = 0;
+            const items = document.getElementById('cart-items');
+            items.replaceChildren();
+            cart.forEach((quantity, index) => {
+                count += quantity;
+                subtotal += products[index].price * quantity;
+                const li = document.createElement('li');
+                li.className = 'mb-3';
+                li.textContent = `${products[index].name} × ${quantity} — ${money(products[index].price * quantity)} `;
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'btn btn-sm btn-outline-secondary';
+                remove.textContent = '減少一件';
+                remove.setAttribute('aria-label', `減少一件${products[index].name}`);
+                remove.addEventListener('click', () => {
+                    quantity > 1 ? cart.set(index, quantity - 1) : cart.delete(index);
+                    renderCart();
+                });
+                li.append(remove);
+                items.append(li);
+            });
+            document.getElementById('cart-count').textContent = count;
+            document.getElementById('cart-empty').hidden = count > 0;
+            document.getElementById('clear-cart').disabled = count === 0;
+            document.getElementById('cart-total').textContent = count ? `商品 ${money(subtotal)} ＋ 運費 NT$ 160 ＝ 合計 ${money(subtotal + 160)}` : '';
+        }
+        document.getElementById('products').addEventListener('click', event => {
+            const button = event.target.closest('[data-product]');
+            if (!button) return;
+            const index = Number(button.dataset.product);
+            cart.set(index, (cart.get(index) || 0) + 1);
+            renderCart();
+            document.getElementById('cart-status').textContent = `已加入「${products[index].name}」，可點選購物車查看。`;
+        });
+        document.getElementById('clear-cart').addEventListener('click', () => {
+            cart.clear(); renderCart();
+            document.getElementById('cart-status').textContent = '購物車已清空。';
+        });
+        renderCart();
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+/*這裡放入時常使用的共通性css style格式*/
+
+/*@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap'); /*引入google正體中文字體https://fonts.google.com/selection/embed*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap'); /*引入google正體中文字體https://fonts.google.com/selection/embed*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /*font-family: "Noto Sans TC", sans-serif;/*文章本體body套用正體中文*/
+    font-family: "DotGothic16", sans-serif;
+        
+} 
+
+:root {
+    --bg001: rgba(16, 184, 66, 0.932);
+    --bg002: rgba(53, 207, 187, 0.932);
+    --btn001: rgba(126, 252, 53, 0.932);
+    --word01: rgb(251, 255, 0);
+    --nav01: rgba(4, 105, 0, 0.932);
+    --logo01: rgba(148, 211, 2, 0.932);
+    --hoverbg01: rgba(44, 204, 183, 0.932);
+    --hoverword01: rgba(201, 0, 151, 0.932);
+}
+
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
