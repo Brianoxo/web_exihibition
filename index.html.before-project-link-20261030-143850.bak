@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="全端工程師個人履歷：個人簡介、技術能力、工作經驗、學習歷程與實作作品。">
+    <title>YOUR NAME｜全端工程師履歷</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        :root { --bg:#090d18; --panel:#111827; --line:#28344b; --text:#eaf0fc; --muted:#aab8cf; --cyan:#62f5db; --purple:#bdabff; }
+        html { scroll-behavior:smooth; }
+        body { background:var(--bg); color:var(--text); font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; line-height:1.85; }
+        body::before { content:""; position:absolute; inset:0 0 auto; height:750px; z-index:-1; background:radial-gradient(ellipse at 85% 10%, #7044d52b, transparent 60%),radial-gradient(ellipse at 5% 20%, #20bda51a, transparent 55%); pointer-events:none; }
+        .resume-container { max-width:1140px; }
+        .sample-note { color:var(--muted); font-size:.8rem; border-bottom:1px solid var(--line); padding:16px 0; }
+        .hero { padding:74px 0 62px; }
+        .eyebrow { font-family:Consolas,monospace; font-size:.76rem; letter-spacing:.16em; color:var(--cyan); text-transform:uppercase; }
+        .availability { display:inline-flex; gap:9px; align-items:center; padding:5px 13px; border:1px solid #33564e; background:#62f5db09; border-radius:50px; font-size:.75rem; color:var(--cyan); }
+        .availability::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--cyan); }
+        h1 { font-size:clamp(3.3rem,7vw,5.8rem); font-weight:800; line-height:1.08; letter-spacing:-.055em; margin:24px 0 16px; }
+        .role { color:var(--purple); font-size:clamp(1.2rem,3vw,1.6rem); font-weight:600; }
+        .hero-intro { max-width:570px; color:var(--muted); margin:20px 0 28px; }
+        .btn-tech { background:var(--cyan); color:#091a19; border:1px solid var(--cyan); padding:11px 23px; border-radius:8px; font-weight:700; }
+        .btn-tech:hover { color:#091a19; background:#a1ffed; border-color:#a1ffed; }
+        .btn-outline-tech { border:1px solid #54617d; color:var(--text); border-radius:8px; padding:11px 23px; }
+        .btn-outline-tech:hover { border-color:var(--purple); color:var(--purple); background:#bdabff0a; }
+        .contact { margin-top:24px; display:flex; flex-wrap:wrap; gap:8px 22px; font-size:.85rem; color:var(--muted); }
+        .contact a { color:var(--muted); text-underline-offset:4px; overflow-wrap:anywhere; }
+        .terminal { background:#0e1524; border:1px solid #34405c; border-radius:15px; box-shadow:18px 18px 0 #bdabff06; overflow:hidden; }
+        .terminal-bar { border-bottom:1px solid var(--line); padding:13px 18px; display:flex; align-items:center; gap:7px; }
+        .dot { height:8px; width:8px; border-radius:50%; background:#667085; }
+        .dot:nth-child(1) { background:#d888a3; } .dot:nth-child(2) { background:#d9c58c; } .dot:nth-child(3) { background:var(--cyan); }
+        .terminal-label { margin-left:auto; font: .72rem Consolas,monospace; color:var(--muted); }
+        .terminal-code { padding:28px; margin:0; color:#d7e1f3; font: .88rem/2.1 Consolas,monospace; white-space:pre-wrap; overflow-wrap:anywhere; }
+        .code-key { color:var(--purple); } .code-string { color:var(--cyan); } .code-comment { color:#9baac4; }
+        .terminal-bottom { padding:14px 24px; border-top:1px solid var(--line); color:var(--cyan); font:.75rem Consolas,monospace; }
+        .section { padding:44px 0; border-top:1px solid var(--line); }
+        .section-head { display:flex; gap:16px; align-items:baseline; margin-bottom:28px; }
+        .section-number { font: .85rem Consolas,monospace; color:var(--cyan); }
+        h2 { font-size:1.55rem; font-weight:700; margin:0; letter-spacing:.03em; }
+        .section-en { margin-left:auto; color:var(--muted); font:.72rem Consolas,monospace; letter-spacing:.12em; }
+        .about-copy { color:var(--muted); }
+        .about-copy strong { color:var(--text); font-weight:500; }
+        .skill-card { background:var(--panel); border:1px solid var(--line); padding:23px; border-radius:12px; height:100%; }
+        .skill-card h3 { font-size:.95rem; margin-bottom:16px; color:var(--cyan); }
+        .skill-tags { display:flex; flex-wrap:wrap; gap:8px; }
+        .skill-tags span { font:.76rem/1.5 Consolas,monospace; color:#d5def1; padding:5px 9px; background:#1b263a; border-radius:5px; }
+        .timeline { border-left:1px solid #3b4663; padding-left:28px; margin-left:7px; }
+        .timeline-item { position:relative; padding-bottom:30px; }
+        .timeline-item:last-child { padding-bottom:0; }
+        .timeline-item::before { content:""; width:11px; height:11px; position:absolute; top:8px; left:-34px; background:var(--bg); border:2px solid var(--cyan); border-radius:50%; }
+        .period { color:var(--purple); font:.8rem Consolas,monospace; margin:0 0 10px; }
+        .timeline h3 { font-size:1.1rem; font-weight:700; margin-bottom:6px; }
+        .company { font-size:.88rem; color:var(--muted); margin-bottom:13px; }
+        .timeline ul { padding-left:20px; margin:0; color:var(--muted); font-size:.94rem; }
+        .learning-card { border:1px solid var(--line); border-radius:12px; padding:25px; background:linear-gradient(140deg,#151e31,#101724); height:100%; display:flex; flex-direction:column; }
+        .learning-card .step { color:var(--purple); font:.73rem Consolas,monospace; letter-spacing:.1em; margin-bottom:17px; }
+        .learning-card h3 { font-size:1.1rem; font-weight:700; }
+        .learning-card p { color:var(--muted); font-size:.9rem; }
+        .learning-card .project-note { color:#d8e3f7; font-size:.83rem; padding-top:14px; border-top:1px solid var(--line); margin-top:auto; }
+        .learning-card a { text-align:center; margin-top:8px; }
+        .closing { margin-top:10px; border:1px solid #435173; border-radius:14px; background:linear-gradient(100deg,#17353455,#39285855); padding:30px; }
+        .closing h2 { font-size:1.35rem; margin-bottom:9px; }
+        .closing p { color:var(--muted); margin:0; font-size:.9rem; }
+        footer { padding:32px 0; color:var(--muted); font-size:.75rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; }
+        a:focus-visible { outline:3px solid var(--purple); outline-offset:5px; }
+        @media(max-width:767px) { .hero { padding:45px 0; } .terminal { margin-top:8px; } .section { padding:32px 0; } .section-en { display:none; } .terminal-code { padding:20px; font-size:.8rem; } .closing { padding:24px; } }
+        @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+        @media print { body { background:white; color:#152034; } body::before,.sample-note,.terminal,.hero .btn,.closing { display:none; } .hero { padding:20px 0; } .section { padding:20px 0; } .about-copy,.timeline ul,.company,.learning-card p,.contact,.contact a,footer { color:#34415a; } .about-copy strong { color:#152034; } .skill-card,.learning-card { background:white; break-inside:avoid; } .skill-tags span { background:#edf1f7; color:#152034; } h1 { font-size:42px; } .learning-card a { color:#152034; } }
+    </style>
+</head>
+<body>
+    <div class="container resume-container">
+        <!-- 以下姓名、聯絡方式、技能與經歷皆為範例，請依實際情況修改後再投遞。 -->
+        <p class="sample-note mb-0">履歷範本 / 以下為示範文案，請替換姓名、聯絡方式、日期與實際經歷。</p>
+        <header class="hero">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="availability">求職目標：全端工程師</span>
+                    <h1>你的姓名<span style="color:var(--cyan)">.</span></h1>
+                    <div class="role">Full-Stack Developer</div>
+                    <p class="hero-intro">從使用者看得見的介面，到背後穩定運作的資料流程，<br class="d-none d-md-block">我希望用清楚的邏輯與細膩的實作，把想法變成真正可用的產品。</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a class="btn btn-tech" href="#learning">探索實作作品 ↘</a>
+                        <!-- 將電子郵件改成你自己的信箱。 -->
+                        <a class="btn btn-outline-tech" href="mailto:your.name@example.com">聯絡我 ↗</a>
+                    </div>
+                    <div class="contact"><span>所在地：請填寫城市</span><a href="mailto:your.name@example.com">your.name@example.com</a><span>姓名 / 電話：請填寫</span></div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="terminal" aria-label="個人開發理念">
+                        <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-label">developer.profile</span></div>
+                        <pre class="terminal-code"><span class="code-comment">// 從想法，到可運作的產品</span>
+<span class="code-key">const</span> developer = {
+  role: <span class="code-string">"Full-Stack Engineer"</span>,
+  focus: [
+    <span class="code-string">"User Experience"</span>,
+    <span class="code-string">"Reliable APIs"</span>,
+    <span class="code-string">"Clean Code"</span>
+  ],
+  mindset: <span class="code-string">"Keep learning."</span>
+};</pre>
+                        <div class="terminal-bottom">&gt; build ideas into reality<span aria-hidden="true"> _</span></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="section" aria-labelledby="about-title">
+                <div class="section-head"><span class="section-number">01 /</span><h2 id="about-title">個人簡介</h2><span class="section-en">ABOUT & CAPABILITIES</span></div>
+                <div class="row g-4">
+                    <div class="col-lg-5 about-copy">
+                        <p>我是一位持續累積實作經驗的全端工程師求職者，關注<strong>介面體驗、資料流與程式可維護性</strong>。學習時，我習慣先釐清需求，再拆解功能、建立資料結構，最後透過測試與調整完成整體流程。</p>
+                        <p class="mb-lg-0">面對陌生技術，我會透過官方文件、實驗與問題紀錄建立理解。我期待加入重視溝通與協作的團隊，從解決具體問題出發，逐步成為能獨立負責功能、也能與夥伴共同交付產品的工程師。</p>
+                    </div>
+                    <div class="col-lg-7"><div class="row g-3">
+                        <div class="col-sm-6"><div class="skill-card"><h3>01 — 前端開發</h3><div class="skill-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span><span>RWD</span></div></div></div>
+                        <div class="col-sm-6"><div class="skill-card"><h3>02 — 後端與協作</h3><div class="skill-tags"><span>PHP</span><span>MySQL</span><span>REST API</span><span>Git</span><span>Debugging</span></div></div></div>
+                    </div><p class="mt-3 mb-0 small" style="color:var(--muted)">技能清單為範例，請保留你能實際說明與展示的項目。</p></div>
+                </div>
+            </section>
+            <section class="section" aria-labelledby="experience-title">
+                <div class="section-head"><span class="section-number">02 /</span><h2 id="experience-title">工作經驗</h2><span class="section-en">EXPERIENCE</span></div>
+                <div class="row"><div class="col-lg-3"><p class="about-copy">把過去的工作方法，<br>轉化為開發時的實作能力。</p><p class="small about-copy">以下為可改寫範例；如無相關經驗，可替換為實習、專題或志工經歷。</p></div>
+                    <div class="col-lg-9"><div class="timeline">
+                        <article class="timeline-item"><p class="period">YYYY.MM — YYYY.MM</p><h3>前一份職務名稱｜請填寫</h3><p class="company">公司名稱｜工作地點</p><ul><li>負責整理日常作業需求，與相關人員確認執行細節，培養清楚表達與跨角色溝通的能力。</li><li>將重複性工作整理為明確步驟，建立紀錄與檢查方式，減少交接時的資訊落差。</li><li>面對突發狀況，先釐清問題、確認影響範圍，再依優先順序安排處理與追蹤。</li></ul></article>
+                        <article class="timeline-item"><p class="period">YYYY.MM — YYYY.MM</p><h3>專案實作／實習經驗｜請填寫</h3><p class="company">專案或單位名稱｜請依實際參與內容修改</p><ul><li>從使用情境拆解功能，規劃頁面結構、操作流程與資料欄位，讓實作有明確方向。</li><li>依設計需求完成響應式頁面，檢查表單回饋、畫面閱讀順序與不同裝置的呈現。</li><li>記錄開發過程中的問題與修正方式，透過版本管理保存修改，方便回顧與持續改善。</li></ul></article>
+                    </div></div>
+                </div>
+            </section>
+            <section class="section" id="learning" aria-labelledby="learning-title">
+                <div class="section-head"><span class="section-number">03 /</span><h2 id="learning-title">學習歷程與作品</h2><span class="section-en">LEARNING & PROJECTS</span></div>
+                <p class="about-copy mb-4">從畫出第一個頁面開始，逐步串起互動邏輯與資料處理。每個作品都是一次把知識轉化為實際功能的練習。</p>
+                <div class="row g-4">
+                    <div class="col-md-4"><article class="learning-card"><div class="step">STAGE 01 / WEB FOUNDATION</div><h3>建立網頁與版型基礎</h3><p>練習語意化 HTML、CSS 排版與 Bootstrap 網格，理解斷點設定，讓同一份內容在手機與桌面都容易閱讀。</p><p class="project-note">作品方向：個人形象頁／響應式網站<br>練習重點：內容層級、版面與 RWD</p>
+                        <!-- 作品路徑設定 1：把下方 href 改成你的 HTML 路徑或作品網址。 -->
+                        <a class="btn btn-outline-tech" href="作品路徑請自行設定-01.html" target="_blank" rel="noopener">查看版型作品 ↗</a>
+                    </article></div>
+                    <div class="col-md-4"><article class="learning-card"><div class="step">STAGE 02 / INTERACTION</div><h3>讓畫面具備互動能力</h3><p>透過 JavaScript 練習事件處理、DOM 操作與資料運算，把靜態版面延伸為能回應使用者操作的購物體驗。</p><p class="project-note">作品方向：寵物蛋糕購物網站<br>練習重點：商品呈現、購物車與總額試算</p>
+                        <!-- 作品路徑設定 2：把下方 href 改成你的蛋糕店網站路徑。 -->
+                        <a class="btn btn-outline-tech" href="作品路徑請自行設定-02.html" target="_blank" rel="noopener">查看互動作品 ↗</a>
+                    </article></div>
+                    <div class="col-md-4"><article class="learning-card"><div class="step">STAGE 03 / FULL-STACK</div><h3>串接資料與後端流程</h3><p>以 PHP 與 MySQL 為學習方向，練習資料表設計、表單驗證及新增、查詢、修改、刪除流程，理解前後端的責任分工。</p><p class="project-note">作品方向：資料管理系統／全端專題<br>練習重點：資料驗證、API 與錯誤處理</p>
+                        <!-- 作品路徑設定 3：把下方 href 改成你的後端專題或程式碼庫網址。 -->
+                        <a class="btn btn-outline-tech" href="作品路徑請自行設定-03.html" target="_blank" rel="noopener">查看全端作品 ↗</a>
+                    </article></div>
+                </div>
+            </section>
+            <aside class="closing"><div class="row align-items-center g-3"><div class="col-md-9"><div class="eyebrow mb-2">LET’S BUILD SOMETHING USEFUL</div><h2>期待用程式，解決下一個真實問題。</h2><p>尋找全端工程師的工作機會，歡迎與我交流職缺、作品與團隊的開發方向。</p></div><div class="col-md-3 text-md-end"><a class="btn btn-tech" href="mailto:your.name@example.com">與我聯繫 ↗</a></div></div></aside>
+        </main>
+        <footer><span>© 你的姓名 · 個人履歷</span><span>以好奇心探索，以實作累積。</span></footer>
+    </div>
+</body>
+</html>
